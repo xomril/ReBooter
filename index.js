@@ -1,5 +1,4 @@
 const util = require('util');
-const fs = require('fs');
 const exec = util.promisify(require('child_process').exec);
 const cron = require('node-cron');
 
