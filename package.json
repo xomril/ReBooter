@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "reboot": "npx taiko reboot.js --observe"
+    "reboot": "npx taiko reboot.js"
   },
   "keywords": [],
   "author": "",
