@@ -14,7 +14,7 @@ add the router credentials to .env file
 ## Usage
 
 ```bash
-pm start
+npm start
 ```
 
 ## Contributing
