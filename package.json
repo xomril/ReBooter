@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "reboot": "npx taiko reboot.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
