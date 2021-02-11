@@ -1,7 +1,5 @@
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
 const cron = require('node-cron');
-
+const { openBrowser, goto, textBox, into, $, write, click, closeBrowser } = require('taiko');
  
 cron.schedule('* * * * *', () => {
   console.log('running a task every minute');
@@ -10,12 +8,27 @@ cron.schedule('* * * * *', () => {
        console.log("No connection");
        reboot();
     } else {
-         console.log("Connected");       
+        console.log("Connected");       
     }
   });
 });
 
 const reboot = async ()=> {
-    await exec("npm run reboot")
+    try {
+        await openBrowser();  
+        await goto(process.env.ROUTER_IP);
+        await write( process.env.ROUTER_USER, into(textBox({name:"userName"})));
+        await write(process.env.ROUTER_PASS, into(textBox({name:"origUserPwd"})));
+        await click("submit");
+        await click("Advanced");
+        await click($("#system"));
+        await click($("#reboot"));
+        await click("submit");        
+       console.log("rebooted")
+    } catch (error) {
+        console.error(error);
+    } finally {
+        await closeBrowser();
+    }
 }
 
