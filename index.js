@@ -11,8 +11,7 @@ cron.schedule('* * * * *', () => {
        console.log("No connection");
        reboot();
     } else {
-        reboot()
-        console.log("Connected");       
+         console.log("Connected");       
     }
   });
 });
